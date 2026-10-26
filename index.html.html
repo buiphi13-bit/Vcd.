@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tổ xe đảo VC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#eef2f6;--surface:#ffffff;--ink:#14263a;--muted:#5b6b7c;--line:#d9e1e9;
+  --hero:#0f2a43;--hero-ink:#ffffff;--hero-muted:#b7c6d6;--amber:#f5a623;
+  --c1:#b86e00;--c1-bg:#fdf0d8;
+  --c2:#1c7a4f;--c2-bg:#dff3e8;
+  --c3:#1f5fa8;--c3-bg:#e1ecf9;
+  --shadow:0 1px 2px rgba(15,42,67,.06),0 8px 24px rgba(15,42,67,.08);
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1520;--surface:#142130;--ink:#e6edf4;--muted:#93a4b6;--line:#243548;
+    --hero:#081019;--hero-ink:#ffffff;--hero-muted:#9fb1c3;--amber:#f0b03a;
+    --c1:#f0b03a;--c1-bg:#33280f;
+    --c2:#5fcf9b;--c2-bg:#10301f;
+    --c3:#7db4f0;--c3-bg:#112a47;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1520;--surface:#142130;--ink:#e6edf4;--muted:#93a4b6;--line:#243548;
+  --hero:#081019;--hero-ink:#ffffff;--hero-muted:#9fb1c3;--amber:#f0b03a;
+  --c1:#f0b03a;--c1-bg:#33280f;
+  --c2:#5fcf9b;--c2-bg:#10301f;
+  --c3:#7db4f0;--c3-bg:#112a47;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Be Vietnam Pro","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  line-height:1.5;-webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);
+  background:var(--hero);z-index:10;
+}
+.hero{background:var(--hero);color:var(--hero-ink);padding:44px 20px 78px}
+.hero-in{max-width:600px;margin:0 auto}
+.hero h1{margin:0;font-size:clamp(1.7rem,6vw,2.2rem);line-height:1.2;font-weight:700;letter-spacing:-.01em}
+.hero p{margin:10px 0 0;color:var(--hero-muted);font-size:1rem;max-width:42ch}
+.stripe{
+  height:10px;
+  background:repeating-linear-gradient(-45deg,var(--amber) 0 14px,var(--hero) 14px 28px);
+}
+main{max-width:600px;margin:-48px auto 0;padding:0 16px 40px;position:relative}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.card{
+  display:flex;align-items:center;gap:16px;
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:18px;text-decoration:none;color:inherit;box-shadow:var(--shadow);
+  transition:transform .15s ease,border-color .15s ease;
+}
+.card:hover{transform:translateY(-2px);border-color:var(--muted)}
+.card:focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+.icon{
+  flex:none;width:52px;height:52px;border-radius:12px;
+  display:grid;place-items:center;
+}
+.icon svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.t1 .icon{background:var(--c1-bg);color:var(--c1)}
+.t2 .icon{background:var(--c2-bg);color:var(--c2)}
+.t3 .icon{background:var(--c3-bg);color:var(--c3)}
+.text{flex:1;min-width:0}
+.text h2{margin:0;font-size:1.08rem;font-weight:650;line-height:1.3}
+.text p{margin:3px 0 0;color:var(--muted);font-size:.9rem}
+.go{
+  flex:none;width:36px;height:36px;border-radius:50%;
+  display:grid;place-items:center;background:var(--bg);color:var(--muted);
+}
+.go svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card:hover .go{background:var(--hero);color:var(--hero-ink)}
+footer{max-width:600px;margin:0 auto;padding:0 20px 28px;color:var(--muted);font-size:.85rem;text-align:center}
+@media (prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-in">
+    <h1>Tổ xe đảo VC</h1>
+    <p>Chọn đầu việc cần thực hiện, biểu mẫu sẽ mở ngay trong tab mới.</p>
+  </div>
+</header>
+<div class="stripe" aria-hidden="true"></div>
+<main>
+  <ul>
+    <li>
+      <a class="card t1" href="https://forms.gle/tBTmZfMNYfdWAhSt7" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 16V8a2 2 0 0 1 2-2h9v10"/><path d="M14 9h3.5L21 12.5V16h-7"/><circle cx="7.5" cy="17.5" r="1.8"/><circle cx="17.5" cy="17.5" r="1.8"/></svg>
+        </span>
+        <span class="text"><h2>Checklist xe</h2><p>Kiểm tra tình trạng xe trước khi vận hành</p></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+    <li>
+      <a class="card t2" href="https://forms.gle/EvGAf4DRWdc51bcp8" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <span class="text"><h2>Nguyên tắc an toàn</h2><p>Đăng ký xác nhận nguyên tắc an toàn</p></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+    <li>
+      <a class="card t3" href="https://forms.gle/Z684poQbU3urgBHV9" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        </span>
+        <span class="text"><h2>Khai báo tăng ca tổ trưởng</h2><p>Đăng ký làm thêm giờ</p></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+    <li>
+      <a class="card t3" href="https://docs.google.com/forms/d/e/1FAIpQLScaGQF9_dRhAdBQYalkOFAbUbgtqj1TNg2Ma7IgAyWLWlEF2g/viewform" target="_blank" rel="noopener">
+        <span class="icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 11h6M9 15h4"/></svg>
+        </span>
+        <span class="text"><h2>Khai báo tăng ca thư ký</h2><p>Đăng ký làm thêm giờ</p></span>
+        <span class="go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+      </a>
+    </li>
+  </ul>
+</main>
+<footer>Bấm vào từng mục để mở biểu mẫu tương ứng.</footer>
+</body>
+</html>
